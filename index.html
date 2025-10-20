@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>El Camarita - Pan de Arroz</title>
+
+  <!-- 🟡 Tipografía moderna -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    /* 🎨 PALETA DE COLORES: cambia estos valores si deseas ajustar tonos */
+    :root {
+      --dorado-oscuro: #d29b38; /* Color dorado principal */
+      --miel-tostado: #b8741a;  /* Color miel secundario */
+      --beige-profundo: #f1d8a6; /* Fondo de menús */
+      --beige-suave: #f6e3b0;   /* Fondo de tarjetas */
+      --texto-oscuro: #3a2610;  /* Color de letras principales */
+      --fondo-textura: radial-gradient(circle at 20% 20%, #f2d8a3 0%, #e7c075 100%);
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background: var(--fondo-textura);
+      color: var(--texto-oscuro);
+      margin: 0;
+      padding: 0;
+      background-attachment: fixed;
+    }
+
+    header {
+      background: linear-gradient(90deg, var(--dorado-oscuro), var(--miel-tostado));
+      color: white;
+      padding: 25px 10px;
+      text-align: center;
+      font-size: 1.9em;
+      font-weight: 600;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+    }
+
+    /* 🧭 MENÚ DE NAVEGACIÓN */
+    nav {
+      position: sticky;
+      top: 0;
+      background: var(--beige-profundo);
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 15px;
+      flex-wrap: wrap;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+      z-index: 10;
+    }
+
+    nav a {
+      color: var(--texto-oscuro); /* Cambia este color para letras del menú */
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1em;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--miel-tostado); /* Color al pasar el mouse */
+    }
+
+    /* 🎥 Sección principal con video */
+    main {
+      position: relative;
+      text-align: center;
+      padding: 120px 20px;
+      color: white;
+      overflow: hidden;
+    }
+
+    .video-fondo {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      filter: brightness(0.6);
+    }
+
+    h1 {
+      font-size: 2.6em;
+      color: #fff;
+      margin-top: 25px;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+    }
+
+    p {
+      font-size: 1.2em;
+      line-height: 1.7;
+    }
+
+    .resaltado {
+      background-color: var(--dorado-oscuro);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      display: inline-block;
+      margin-top: 15px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+    }
+
+    /* 🧺 SECCIONES DE CONTENIDO */
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: 60px auto;
+      background-color: #fffaf0; /* Fondo de secciones: cámbialo si lo quieres más oscuro o beige */
+      border-radius: 15px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+      color: var(--texto-oscuro);
+    }
+
+    /* 🧁 PRODUCTOS */
+    .productos {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+      margin-top: 40px;
+    }
+
+    .producto {
+      background-color: var(--beige-suave);
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      width: 280px;
+      text-align: center;
+      padding: 15px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .producto:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+    }
+
+    .producto img {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 10px;
+    }
+
+    .producto h3 {
+      margin: 10px 0 5px;
+      color: var(--miel-tostado);
+    }
+
+    /* 👥 TRABAJA CON NOSOTROS */
+    .trabaja {
+      text-align: center;
+      background-color: var(--beige-profundo);
+      border: 2px solid var(--miel-tostado);
+      border-radius: 15px;
+      padding: 40px 20px;
+      margin-top: 50px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .trabaja h2 {
+      color: var(--miel-tostado);
+      margin-bottom: 15px;
+    }
+
+    .trabaja a {
+      text-decoration: none;
+      background-color: #25D366; /* Color botón de WhatsApp */
+      color: white;
+      padding: 12px 25px;
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 1.1em;
+      transition: 0.3s;
+    }
+
+    .trabaja a:hover {
+      opacity: 0.9;
+    }
+
+    /* 📱 PIE DE PÁGINA Y REDES SOCIALES */
+    footer {
+      background: linear-gradient(90deg, var(--miel-tostado), var(--dorado-oscuro));
+      color: #fff;
+      padding: 25px;
+      text-align: center;
+      font-size: 1em;
+      box-shadow: 0 -3px 6px rgba(0,0,0,0.25);
+    }
+
+    .redes {
+      margin-top: 15px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .redes a {
+      text-decoration: none;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      display: inline-block;
+      transition: 0.3s;
+    }
+
+    /* 🎯 Colores de botones de redes */
+    .whatsapp { background-color: #25D366; }
+    .instagram { background-color: #e4405f; }
+    .facebook { background-color: #1877f2; }
+
+    .redes a:hover { opacity: 0.85; }
+
+    /* 📱 Ajustes para celulares */
+    @media (max-width: 600px) {
+      h1 { font-size: 1.8em; }
+      p { font-size: 1em; }
+      nav { gap: 15px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- 🥯 ENCABEZADO PRINCIPAL -->
+  <header>🥯 Pan de Arroz "El Camarita"</header>
+
+  <!-- 🧭 MENÚ -->
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#quienes-somos">Quiénes Somos</a>
+    <a href="#productos">Productos</a>
+    <a href="#trabaja">Trabaja con Nosotros</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+
+  <!-- 🎥 SECCIÓN INICIAL CON VIDEO -->
+  <main id="inicio">
+    <video autoplay muted loop playsinline class="video-fondo">
+      <source src="fondo.mp4" type="video/mp4" />
+      Tu navegador no soporta video HTML5.
+    </video>
+
+    <h1>Delicioso sabor y crocancia única</h1>
+    <p>
+      <span class="resaltado">Naturales, Libres de Gluten, Saludables y Nutritivas</span><br><br>
+      A base de arroz y queso, elaboradas artesanalmente en Ibagué.
+    </p>
+  </main>
+
+  <!-- 👥 QUIÉNES SOMOS -->
+  <section id="quienes-somos">
+    <h1>¿Quiénes Somos?</h1>
+    <p>
+      <strong>Pan de Arroz "El Camarita"</strong> es un emprendimiento ibaguereño que busca ofrecer productos de calidad como las 
+      rosquitas llaneras 100% naturales, libres de gluten y elaboradas a base de arroz y queso.  
+      Cada pieza es hecha con amor, cuidando cada detalle para brindar una crocancia única y un sabor excepcional.  
+      Nuestro propósito es ofrecer <strong>calidad, sabor y salud</strong> en cada bocado.
+    </p>
+  </section>
+
+  <!-- 🍘 PRODUCTOS -->
+  <section id="productos">
+    <h1>Nuestros Productos</h1>
+    <div class="productos">
+      <div class="producto">
+        <img src="producto1.jpg.jpg" alt="Rosquitas El Camarita" />
+        <h3>Rosquitas Llaneras</h3>
+        <p>Crocantes, sin gluten y deliciosas. Hechas con arroz y queso natural.</p>
+      </div>
+      <div class="producto">
+        <img src="producto2.jpg.jpg" alt="Paquete El Camarita" />
+        <h3>Presentación de 10 unidades</h3>
+        <p>Perfectas para compartir o disfrutar a cualquier hora del día.</p>
+      </div>
+      <div class="producto">
+        <img src="producto3.jpg.jpg" alt="Pan de arroz Ibagué" />
+        <h3>Producto 100% Natural</h3>
+        <p>Libre de gluten, nutritivo y con el auténtico sabor de Ibagué.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 💼 TRABAJA CON NOSOTROS -->
+  <section id="trabaja" class="trabaja">
+    <h2>¿Quieres ser parte de nuestro equipo?</h2>
+    <p>En <strong>El Camarita</strong> creemos en el talento local y en el trabajo con pasión.  
+    Si te gustaría unirte a nuestro equipo, contáctanos al <strong>📞 313 309 8211</strong> o haz clic aquí:</p>
+    <a href="https://wa.me/573133098211" target="_blank">💬 Contactar por WhatsApp</a>
+  </section>
+
+  <!-- 📞 PIE DE PÁGINA -->
+  <footer id="contacto">
+    Ibagué, Tolima — Ya disponible en tiendas locales  
+    <br />Tel: 3144834912
+
+
+    <div class="redes">
+      <a class="whatsapp" href="https://wa.me/message/CM57AFMZETZ2C1" target="_blank">💬 WhatsApp</a>
+      <a class="instagram" href="https://www.instagram.com/pandearroz_larecetallanera?igsh=MXN0YWF5N2djcDBveg%3D%3D&utm_source=qr" target="_blank">📸 Instagram</a>
+      <a class="facebook" href="https://www.facebook.com/share/19qVVNG6Mz/?mibextid=wwXIfr" target="_blank">👍 Facebook</a>
+    </div>
+  </footer>
+</body>
+</html>
