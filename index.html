@@ -345,7 +345,9 @@
   <!-- RESTO DE TU CÓDIGO ORIGINAL -->
   <section id="quienes-somos">
     <h1>¿Quiénes Somos?</h1>
-    <p><strong>Pan de Arroz "El Camarita"</strong> es un emprendimiento ibaguereño...</p>
+    <p><strong>Pan de Arroz "El Camarita"</strong> Pan De Arroz es un emprendimiento ibaguereño que busca ofrecer productos de calidad como las rosquitas llaneras 100% naturales, libres de gluten y elaboradas a base de arroz y queso.  
+Cada pieza es hecha con amor, cuidando cada detalle para brindar una crocancia única y un sabor excepcional.  
+Nuestro propósito es ofrecer calidad, sabor y salud en cada bocado.</p>
   </section>
 
   <section id="productos">
@@ -374,6 +376,70 @@
     <p>En <strong>El Camarita</strong> creemos en el talento local...</p>
     <a href="https://wa.me/573133098211" target="_blank">💬 Contactar por WhatsApp</a>
   </section>
+<!-- =============================
+   SECCIÓN: Suscríbete / Crear cuenta
+   (Pega EN TU index.html antes del <footer>)
+   ============================= -->
+<section id="suscribete" style="padding:40px 20px; max-width:900px; margin:40px auto; border-radius:12px; background: linear-gradient(180deg,#fff7e6,#f6e3b0); box-shadow:0 4px 12px rgba(0,0,0,0.12); color: #3a2610;">
+  <h2 style="margin-top:0; color:#b8741a;">Suscríbete y recibe noticias</h2>
+  <p>Deja tu correo y te enviaremos ofertas, lanzamientos y novedades. No compartimos tu información.</p>
+
+  <!-- FORM: reemplaza el ACTION por tu endpoint de Formspree (https://formspree.io/f/XXXXXX) -->
+  <form id="subscribeForm" method="POST" action="https://formspree.io/f/xvgvjepb" style="display:flex; gap:10px; flex-wrap:wrap;">
+    <label for="name" style="display:none">Nombre</label>
+    <input id="name" name="name" type="text" placeholder="Tu nombre (opcional)" style="flex:1 1 200px; padding:12px; border-radius:8px; border:1px solid rgba(0,0,0,0.12);">
+
+    <label for="email" style="display:none">Email</label>
+    <input id="email" name="email" type="email" required placeholder="tunombre@gmail.com" style="flex:1 1 250px; padding:12px; border-radius:8px; border:1px solid rgba(0,0,0,0.12);">
+
+    <button type="submit" style="background:#b8741a; color:white; padding:12px 18px; border-radius:8px; border:none; font-weight:600; cursor:pointer;">Suscribirme</button>
+
+    <div id="formMessage" style="width:100%; margin-top:10px; font-weight:600; display:none;"></div>
+  </form>
+
+  <small style="display:block; margin-top:8px; color:#6b4c24;">Al suscribirte aceptas recibir comunicaciones nuestras. Puedes darte de baja cuando quieras.</small>
+</section>
+
+<script>
+  // SCRIPT: envía con fetch a Formspree y muestra mensaje (no recarga la página)
+  (function(){
+    const form = document.getElementById('subscribeForm');
+    const msg = document.getElementById('formMessage');
+    form.addEventListener('submit', async function(e){
+      e.preventDefault();
+      msg.style.display = 'block';
+      msg.textContent = 'Enviando...';
+
+      const endpoint = form.action; // reemplaza por tu endpoint si quieres hardcodearlo
+      const data = new FormData(form);
+
+      try {
+        const res = await fetch(endpoint, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: data
+        });
+
+        if (res.ok) {
+          form.reset();
+          msg.style.color = '#1b5e20';
+          msg.textContent = 'Gracias — tu correo se ha registrado.';
+        } else {
+          const json = await res.json().catch(()=>null);
+          msg.style.color = '#b71c1c';
+          msg.textContent = (json && json.error) ? ('Error: '+json.error) : 'Ocurrió un error. Intenta de nuevo.';
+        }
+      } catch (err) {
+        msg.style.color = '#b71c1c';
+        msg.textContent = 'Error de conexión. Intenta más tarde.';
+      }
+
+      // ocultar mensaje después de 6s
+      setTimeout(()=>{ msg.style.display = 'none'; }, 6000);
+    });
+  })();
+</script>
+
 
   <footer id="contacto">
     Ibagué, Tolima — Ya disponible en tiendas locales  
