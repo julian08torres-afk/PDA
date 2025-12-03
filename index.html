@@ -333,12 +333,18 @@
   transform: scale(1.1);
 }
 .hero {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
 }
+
+.hero video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
 
 .video-fondo {
   width: 100%;
@@ -360,14 +366,12 @@
   </header>
 
   <section class="hero">
-    <video autoplay muted loop playsinline class="video-fondo">
-      <source src="fondo.mp4" type="video/mp4" />
+    <video autoplay muted loop playsinline>
+        <source src="video.mp4" type="video/mp4">
     </video>
-  </section>
+</section>
 
-  <nav>
-    ...
-  </nav>
+<nav>…</nav>
   <!-- ☰ Botón menú -->
 
   <!-- 📋 Panel lateral -->
