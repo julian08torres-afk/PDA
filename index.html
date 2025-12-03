@@ -5,385 +5,187 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>El Camarita - Pan de Arroz</title>
 
-  <!-- 🟡 Tipografía moderna -->
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
-    :root {
-      --dorado-oscuro: #d29b38;
-      --miel-tostado: #b8741a;
-      --beige-profundo: #f1d8a6;
-      --beige-suave: #f6e3b0;
-      --texto-oscuro: #3a2610;
-      --fondo-textura: radial-gradient(circle at 20% 20%, #f2d8a3 0%, #e7c075 100%);
+    :root{
+      --dorado-oscuro:#d29b38;
+      --miel-tostado:#b8741a;
+      --beige-profundo:#f1d8a6;
+      --beige-suave:#f6e3b0;
+      --texto-oscuro:#3a2610;
     }
 
-    
-    body {
-      font-family: "Poppins", sans-serif;
-      background: var(--fondo-textura);
-      color: var(--texto-oscuro);
-      margin: 0;
-      padding: 0;
-      background-attachment: fixed;
+    /* Reset simple */
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      font-family:"Poppins",sans-serif;
+      background: radial-gradient(circle at 20% 20%, #f2d8a3 0%, #e7c075 100%);
+      color:var(--texto-oscuro);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
     }
 
-    header {
+    /* HEADER (único) */
+    header{
+      position:relative; /* no sticky here, nav will be below */
       background: linear-gradient(90deg, var(--dorado-oscuro), var(--miel-tostado));
-      color: white;
-      padding: 25px 10px;
-      text-align: center;
-      font-size: 1.9em;
-      font-weight: 600;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.3);
-      position: sticky;
-      top:0;
-       z-index: 1000;
-
+      color:#fff;
+      padding:18px 16px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:12px;
     }
 
-    /* ☰ Botón del menú */
-    .menu-btn {
-      position: absolute;
-      left: 20px;
-      top: 25px;
-      font-size: 1.8em;
-      cursor: pointer;
-      background: none;
-      border: none;
-      color: white;
-      font-weight: bold;
+    .menu-btn{
+      position:absolute;
+      left:16px;
+      top:16px;
+      font-size:28px;
+      color:white;
+      background:none;
+      border:none;
+      cursor:pointer;
     }
 
-    /* 📋 Panel lateral */
-    .side-menu {
+    .logo-container{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .logo-img{
+      height:44px;
+      width:44px;
+      border-radius:50%;
+      object-fit:cover;
+      border:2px solid rgba(255,255,255,0.8);
+    }
+
+    .marca-texto{
+      font-weight:600;
+      font-size:1.25rem;
+      letter-spacing:0.4px;
+    }
+
+    /* HERO (video banner) */
+    .hero{
+      width:100%;
+      overflow:hidden;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background: transparent;
+    }
+
+    /* The video will scale to full width and keep its aspect ratio */
+    .hero video{
+      width:100%;
+      height:auto;
+      max-height:420px; /* ajusta este valor a tu gusto: 320/420/500 */
+      display:block;
+      object-fit:cover; /* ojo: cover puede recortar verticalmente si el aspect ratio es distinto */
+      border-radius:12px; /* si no quieres bordes, pon 0 */
+      margin: 12px auto;
+      max-width:1200px; /* evita que se estire demasiado en pantallas enormes */
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    }
+
+    /* NAV debajo del video */
+    nav{
+      background:var(--beige-profundo);
+      display:flex;
+      justify-content:center;
+      gap:30px;
+      padding:14px 12px;
+      box-shadow:0 3px 6px rgba(0,0,0,0.12);
+    }
+
+    nav a{
+      text-decoration:none;
+      color:var(--texto-oscuro);
+      font-weight:600;
+    }
+
+    /* Contenido principal se adapta debajo */
+    main{
+      padding:30px 16px 80px;
+      max-width:1100px;
+      margin:0 auto;
+    }
+
+    section.card{
+      background:#d29b38;
+      color:var(--texto-oscuro);
+      border-radius:12px;
+      padding:28px;
+      margin:24px 0;
+      box-shadow:0 6px 18px rgba(0,0,0,0.08);
+    }
+
+    /* Footer y redes */
+    footer{
+      background: linear-gradient(90deg,var(--miel-tostado),var(--dorado-oscuro));
+      color:#fff;
+      padding:22px;
+      text-align:center;
+    }
+
+    .redes{display:flex;gap:12px;justify-content:center;margin-top:10px}
+    .whatsapp-fixed {
       position: fixed;
-      top: 0;
-      left: -260px;
-      width: 250px;
-      height: 100%;
-      background-color: var(--beige-profundo);
-      box-shadow: 3px 0 8px rgba(0, 0, 0, 0.3);
-      transition: 0.3s;
-      padding-top: 80px;
-      z-index: 100;
+      right: 18px;
+      bottom: 18px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background:#25D366;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow:0 6px 18px rgba(0,0,0,0.18);
+      z-index:1000;
+      text-decoration:none;
     }
 
-    .side-menu.active {
-      left: 0;
+    /* Responsive */
+    @media (max-width:900px){
+      .hero video{max-width:100%; max-height:340px;}
+      .marca-texto{font-size:1.05rem}
     }
-
-    .side-menu a {
-      display: block;
-      padding: 15px 25px;
-      color: var(--texto-oscuro);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1.1em;
-      border-bottom: 1px solid rgba(0,0,0,0.1);
-      transition: 0.3s;
+    @media (max-width:600px){
+      .hero video{max-height:260px}
+      .menu-btn{left:12px; top:12px}
+      header{padding:14px 12px}
+      nav{gap:12px; padding:10px}
     }
-
-    .side-menu a:hover {
-      background-color: var(--miel-tostado);
-      color: white;
-    }
-
-    /* Fondo oscuro al abrir menú */
-    .overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.4);
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s;
-      z-index: 50;
-    }
-
-    .overlay.active {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    /* 🧭 MENÚ DE NAVEGACIÓN (original) */
-    nav {
-      position: sticky;
-      top: 0;
-      background: var(--beige-profundo);
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      padding: 15px;
-      flex-wrap: wrap;
-      box-shadow: 0 3px 6px rgba(0,0,0,0.2);
-      z-index: 10;
-    }
-
-    nav a {
-      color: var(--texto-oscuro);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1.1em;
-      transition: 0.3s;
-    }
-
-    nav a:hover {
-      color: var(--miel-tostado);
-    }
-
-    main {
-      position: relative;
-      text-align: center;
-      padding: 120px 20px;
-      color: white;
-      overflow: hidden;
-    }
-
-    /* Hero: video en la parte superior, tamaño moderado */
-.hero {
-  width: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-.video-fondo {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  display: block;
-  max-height: 350px;
-}
-
-
-    h1 {
-      font-size: 2.6em;
-      color: #ffffffcc;
-      margin-top: 25px;
-      text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
-    }
-
-    p {
-      font-size: 1.2em;
-      line-height: 1.7;
-    }
-
-    .resaltado {
-      background-color: var(--dorado-oscuro);
-      color: white;
-      padding: 10px 20px;
-      border-radius: 8px;
-      font-weight: bold;
-      display: inline-block;
-      margin-top: 15px;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.2);
-    }
-
-    section {
-      padding: 60px 20px;
-      max-width: 1000px;
-      margin: 60px auto;
-      background-color: #d29b38;
-      border-radius: 15px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.15);
-      color: var(--texto-oscuro);
-    }
-
-    .productos {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 25px;
-      margin-top: 40px;
-    }
-
-    .producto {
-      background-color: var(--beige-suave);
-      border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      width: 280px;
-      text-align: center;
-      padding: 15px;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .producto:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 6px 15px rgba(0,0,0,0.25);
-    }
-
-    .producto img {
-      width: 100%;
-      border-radius: 12px;
-      margin-bottom: 10px;
-    }
-
-    .producto h3 {
-      margin: 10px 0 5px;
-      color: var(--miel-tostado);
-    }
-
-    .trabaja {
-      text-align: center;
-      background-color: var(--beige-profundo);
-      border: 2px solid var(--miel-tostado);
-      border-radius: 15px;
-      padding: 40px 20px;
-      margin-top: 50px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    }
-
-    .trabaja h2 {
-      color: var(--miel-tostado);
-      margin-bottom: 15px;
-    }
-
-    .trabaja a {
-      text-decoration: none;
-      background-color: #25D366;
-      color: white;
-      padding: 12px 25px;
-      border-radius: 10px;
-      font-weight: bold;
-      font-size: 1.1em;
-      transition: 0.3s;
-    }
-
-    .trabaja a:hover { opacity: 0.9; }
-
-    footer {
-      background: linear-gradient(90deg, var(--miel-tostado), var(--dorado-oscuro));
-      color: #fff;
-      padding: 25px;
-      text-align: center;
-      font-size: 1em;
-      box-shadow: 0 -3px 6px rgba(0,0,0,0.25);
-    }
-
-    .redes {
-      margin-top: 15px;
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    .redes a {
-      text-decoration: none;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 8px;
-      font-weight: bold;
-      display: inline-block;
-      transition: 0.3s;
-    }
-
-    .whatsapp { background-color: #25D366; }
-    .instagram { background-color: #e4405f; }
-    .facebook { background-color: #1877f2; }
-    .redes a:hover { opacity: 0.85; }
-
-    @media (max-width: 600px) {
-      h1 { font-size: 1.8em; }
-      p { font-size: 1em; }
-      nav { gap: 15px; }
-    }
-    .logo-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-}
-
-.logo-img {
-  height: 48px;
-  width: 48px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid white;
-}
-
-.marca-texto {
-  font-size: 1em;
-  font-weight: 600;
-}
-/* BOTÓN WHATSAPP FLOTANTE */
-.whatsapp-fixed {
-  position: fixed;
-  bottom: 18px;
-  right: 18px;
-  background-color: #25D366;
-  color: white;
-  font-size: 26px;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-  z-index: 200;
-  transition: transform 0.3s;
-}
-
-.whatsapp-fixed:hover {
-  transform: scale(1.1);
-}
-.hero {
-    width: 100%;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-}
-
-.hero video {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-
-.video-fondo {
-  width: 100%;
-  max-width: 1200px;
-  object-fit: cover;
-  border-radius: 0;
-}
 
   </style>
 </head>
 <body>
 
+  <!-- HEADER (solo UNO) -->
   <header>
     <button class="menu-btn" onclick="toggleMenu()">☰</button>
     <div class="logo-container">
-      <img src="logo.png" alt="El Camarita logo" class="logo-img">
-      <span class="marca-texto">Pan de Arroz “El Camarita”</span>
+      <img src="logo.png" class="logo-img" alt="logo">
+      <div class="marca-texto">Pan de Arroz “El Camarita”</div>
     </div>
   </header>
 
+  <!-- HERO: video banner ancho de lado a lado, centrado y con max-width -->
   <section class="hero">
-    <video autoplay muted loop playsinline>
-        <source src="video.mp4" type="video/mp4">
+    <!-- asegúrate que el archivo se llame exactamente 'fondo.mp4' en la misma carpeta -->
+    <video autoplay muted loop playsinline controlslist="nodownload">
+      <source src="fondo.mp4" type="video/mp4">
+      Tu navegador no soporta video HTML5.
     </video>
-</section>
+  </section>
 
-<nav>…</nav>
-  <!-- ☰ Botón menú -->
-
-  <!-- 📋 Panel lateral -->
-  <div class="side-menu" id="sideMenu">
-    <a href="#pan-arroz">Pan de arroz y bagué</a>
-    <a href="#saludable">Saludable</a>
-    <a href="#suplementos">Suplementos naturales</a>
-    <a href="#picar">Para picar</a>
-  </div>
-  <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
-
-  <!-- 🧭 MENÚ ORIGINAL -->
+  <!-- NAV debajo del banner -->
   <nav>
     <a href="#inicio">Inicio</a>
     <a href="#quienes-somos">Quiénes Somos</a>
@@ -392,151 +194,64 @@
     <a href="#contacto">Contacto</a>
   </nav>
 
-  <!-- 🎥 SECCIÓN INICIAL -->
+  <!-- CONTENIDO PRINCIPAL -->
+  <main id="inicio">
+    <section class="card" id="pan-arroz">
+      <h2>Pan de arroz y bagué</h2>
+      <p>Aquí podrás colocar tus productos e imágenes de esta categoría.</p>
+    </section>
 
-  <!-- NUEVAS SECCIONES -->
-  <section id="pan-arroz">
-    <h1>Pan de arroz y bagué</h1>
-    <p>Aquí podrás colocar tus productos e imágenes de esta categoría.</p>
-  </section>
+    <section class="card" id="saludable">
+      <h2>Saludable</h2>
+      <p>Sección para productos saludables.</p>
+    </section>
 
-  <section id="saludable">
-    <h1>Saludable</h1>
-    <p>Sección para productos saludables.</p>
-  </section>
+    <section class="card" id="suplementos">
+      <h2>Suplementos naturales</h2>
+      <p>Aquí podrás mostrar tus suplementos naturales.</p>
+    </section>
 
-  <section id="suplementos">
-    <h1>Suplementos naturales</h1>
-    <p>Aquí podrás mostrar tus suplementos naturales.</p>
-  </section>
+    <section class="card" id="picar">
+      <h2>Para picar</h2>
+      <p>Productos ligeros y deliciosos para cualquier momento.</p>
+    </section>
 
-  <section id="picar">
-    <h1>Para picar</h1>
-    <p>Productos ligeros y deliciosos para cualquier momento.</p>
-  </section>
+    <!-- sección quienes somos -->
+    <section class="card" id="quienes-somos">
+      <h2>¿Quiénes Somos?</h2>
+      <p><strong>Pan de Arroz "El Camarita"</strong> es un emprendimiento ibaguereño que ofrece rosquillas llaneras 100% naturales, libres de gluten y elaboradas a base de arroz y queso.</p>
+    </section>
+  </main>
 
-  <!-- RESTO DE TU CÓDIGO ORIGINAL -->
-  <section id="quienes-somos">
-    <h1>¿Quiénes Somos?</h1>
-    <p><strong>Pan de Arroz "El Camarita"</strong> Pan De Arroz es un emprendimiento ibaguereño que busca ofrecer productos de calidad como las rosquitas llaneras 100% naturales, libres de gluten y elaboradas a base de arroz y queso.  
-Cada pieza es hecha con amor, cuidando cada detalle para brindar una crocancia única y un sabor excepcional.  
-Nuestro propósito es ofrecer calidad, sabor y salud en cada bocado.</p>
-  </section>
-
-  <section id="productos">
-    <h1>Nuestros Productos</h1>
-    <div class="productos">
-      <div class="producto">
-        <img src="producto1.jpg" alt="Rosquitas El Camarita" />
-        <h3>Rosquitas Llaneras</h3>
-        <p>Crocantes, sin gluten y deliciosas. Hechas con arroz y queso natural.</p>
-      </div>
-      <div class="producto">
-        <img src="producto2.jpg" alt="Paquete El Camarita" />
-        <h3>Presentación de 10 unidades</h3>
-        <p>Perfectas para compartir o disfrutar a cualquier hora del día.</p>
-      </div>
-      <div class="producto">
-        <img src="producto3.jpg" alt="Pan de arroz Ibagué" />
-        <h3>Producto 100% Natural</h3>
-        <p>Libre de gluten, nutritivo y con el auténtico sabor de Ibagué.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="trabaja" class="trabaja">
-    <h2>¿Quieres ser parte de nuestro equipo?</h2>
-    <p>En <strong>El Camarita</strong> creemos en el talento local...</p>
-    <a href="https://wa.me/573133098211" target="_blank">💬 Contactar por WhatsApp</a>
-  </section>
-<!-- =============================
-   SECCIÓN: Suscríbete / Crear cuenta
-   (Pega EN TU index.html antes del <footer>)
-   ============================= -->
-<section id="suscribete" style="padding:40px 20px; max-width:900px; margin:40px auto; border-radius:12px; background: linear-gradient(180deg,#fff7e6,#f6e3b0); box-shadow:0 4px 12px rgba(0,0,0,0.12); color: #3a2610;">
-  <h2 style="margin-top:0; color:#b8741a;">Suscríbete y recibe noticias</h2>
-  <p>Deja tu correo y te enviaremos ofertas, lanzamientos y novedades. No compartimos tu información.</p>
-
-  <!-- FORM: reemplaza el ACTION por tu endpoint de Formspree (https://formspree.io/f/XXXXXX) -->
-  <form id="subscribeForm" method="POST" action="https://formspree.io/f/xvgvjepb" style="display:flex; gap:10px; flex-wrap:wrap;">
-    <label for="name" style="display:none">Nombre</label>
-    <input id="name" name="name" type="text" placeholder="Tu nombre (opcional)" style="flex:1 1 200px; padding:12px; border-radius:8px; border:1px solid rgba(0,0,0,0.12);">
-
-    <label for="email" style="display:none">Email</label>
-    <input id="email" name="email" type="email" required placeholder="tunombre@gmail.com" style="flex:1 1 250px; padding:12px; border-radius:8px; border:1px solid rgba(0,0,0,0.12);">
-
-    <button type="submit" style="background:#b8741a; color:white; padding:12px 18px; border-radius:8px; border:none; font-weight:600; cursor:pointer;">Suscribirme</button>
-
-    <div id="formMessage" style="width:100%; margin-top:10px; font-weight:600; display:none;"></div>
-  </form>
-
-  <small style="display:block; margin-top:8px; color:#6b4c24;">Al suscribirte aceptas recibir comunicaciones nuestras. Puedes darte de baja cuando quieras.</small>
-</section>
-
-<script>
-  // SCRIPT: envía con fetch a Formspree y muestra mensaje (no recarga la página)
-  (function(){
-    const form = document.getElementById('subscribeForm');
-    const msg = document.getElementById('formMessage');
-    form.addEventListener('submit', async function(e){
-      e.preventDefault();
-      msg.style.display = 'block';
-      msg.textContent = 'Enviando...';
-
-      const endpoint = form.action; // reemplaza por tu endpoint si quieres hardcodearlo
-      const data = new FormData(form);
-
-      try {
-        const res = await fetch(endpoint, {
-          method: 'POST',
-          headers: { 'Accept': 'application/json' },
-          body: data
-        });
-
-        if (res.ok) {
-          form.reset();
-          msg.style.color = '#1b5e20';
-          msg.textContent = 'Gracias — tu correo se ha registrado.';
-        } else {
-          const json = await res.json().catch(()=>null);
-          msg.style.color = '#b71c1c';
-          msg.textContent = (json && json.error) ? ('Error: '+json.error) : 'Ocurrió un error. Intenta de nuevo.';
-        }
-      } catch (err) {
-        msg.style.color = '#b71c1c';
-        msg.textContent = 'Error de conexión. Intenta más tarde.';
-      }
-
-      // ocultar mensaje después de 6s
-      setTimeout(()=>{ msg.style.display = 'none'; }, 6000);
-    });
-  })();
-</script>
-
-
+  <!-- FOOTER -->
   <footer id="contacto">
-    Ibagué, Tolima — Ya disponible en tiendas locales  
-    <br />Tel: 3144834912
+    Ibagué, Tolima — Tel: 3144834912
     <div class="redes">
       <a class="whatsapp" href="https://wa.me/message/CM57AFMZETZ2C1" target="_blank">💬 WhatsApp</a>
-      <a class="instagram" href="https://www.instagram.com/pandearroz_larecetallanera?igsh=MXN0YWF5N2djcDBveg%3D%3D&utm_source=qr" target="_blank">📸 Instagram</a>
-      <a class="facebook" href="https://www.facebook.com/share/19qVVNG6Mz/?mibextid=wwXIfr" target="_blank">👍 Facebook</a>
+      <a class="instagram" href="#" target="_blank">📸 Instagram</a>
+      <a class="facebook" href="#" target="_blank">👍 Facebook</a>
     </div>
   </footer>
 
-  <!-- ⚙️ SCRIPT -->
+  <!-- WHATSAPP FLOTANTE -->
+  <a class="whatsapp-fixed" href="https://wa.me/573133098211" target="_blank" aria-label="WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="white"><path d="M..."/></svg>
+  </a>
+
+  <!-- Menú lateral (oculto) -->
+  <div class="side-menu" id="sideMenu" style="display:none;">
+    <a href="#pan-arroz">Pan de arroz y bagué</a>
+    <a href="#saludable">Saludable</a>
+    <a href="#suplementos">Suplementos naturales</a>
+    <a href="#picar">Para picar</a>
+  </div>
+
   <script>
-    function toggleMenu() {
-      document.getElementById('sideMenu').classList.toggle('active');
-      document.getElementById('overlay').classList.toggle('active');
+    function toggleMenu(){
+      const s = document.getElementById('sideMenu');
+      if(!s) return;
+      s.style.display = (s.style.display === 'none' || s.style.display === '') ? 'block' : 'none';
     }
   </script>
- <a href="https://wa.me/573133098211" class="whatsapp-fixed" target="_blank">
-  <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="white">
-    <path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.96C.16 5.318 5.477 0 12.058 0c3.18 0 6.167 1.24 8.413 3.488a11.8 11.8 0 013.49 8.414c-.003 6.58-5.32 11.897-11.9 11.897a11.9 11.9 0 01-5.964-1.585L.057 24zm6.597-3.807c1.78.995 3.066 1.591 5.392 1.591 5.448 0 9.886-4.434 9.889-9.878.003-5.462-4.415-9.89-9.881-9.893-5.452 0-9.887 4.434-9.889 9.88a9.84 9.84 0 001.63 5.357l-.999 3.648 3.858-.905zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.03-.967-.272-.099-.47-.149-.669.149-.198.297-.768.968-.94 1.166-.173.199-.347.223-.644.074-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.654-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.173.198-.297.297-.495.099-.198.05-.372-.025-.521-.074-.149-.669-1.61-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.072.149.198 2.095 3.2 5.076 4.487.709.303 1.262.483 1.694.619.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/>
-  </svg>
-</a>
-
-
 </body>
 </html>
