@@ -138,16 +138,20 @@
       overflow: hidden;
     }
 
-    .video-fondo {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+    /* Hero: video en la parte superior, tamaño moderado */
+.hero {
+  width: 100%;
+  overflow: hidden;
+}
+
+.video-fondo {
+  width: 100%;
+  height: auto;
+  max-height: 350px; /* ajusta 300/320/400 según prefieras */
   object-fit: cover;
-  z-index: -1;
-  
-    }
+  display: block;
+}
+
 
     h1 {
       font-size: 2.6em;
@@ -327,6 +331,20 @@
   </style>
 </head>
 <body>
+  <body>
+  <section class="hero">
+    <video autoplay muted loop playsinline class="video-fondo">
+      <source src="fondo.mp4" type="video/mp4" />
+      Tu navegador no soporta video HTML5.
+    </video>
+  </section>
+
+  <!-- ☰ Botón menú -->
+  <header>
+    ...
+  </header>
+  ...
+
   <!-- ☰ Botón menú -->
   <header>
     <button class="menu-btn" onclick="toggleMenu()">☰</button>
@@ -357,10 +375,8 @@
 
   <!-- 🎥 SECCIÓN INICIAL -->
  <main id="inicio">
-  <video autoplay muted loop playsinline class="video-fondo">
-    <source src="fondo.mp4" type="video/mp4" />
-    Tu navegador no soporta video HTML5.
-  </video>
+  <!-- Contenido principal (sin el video aquí) -->
+ 
 </main>
 
   <!-- NUEVAS SECCIONES -->
@@ -509,4 +525,3 @@ Nuestro propósito es ofrecer calidad, sabor y salud en cada bocado.</p>
 
 </body>
 </html>
-
