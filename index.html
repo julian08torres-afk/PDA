@@ -281,13 +281,37 @@
       p { font-size: 1em; }
       nav { gap: 15px; }
     }
+    .logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.logo-img {
+  height: 48px;
+  width: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid white;
+}
+
+.marca-texto {
+  font-size: 1em;
+  font-weight: 600;
+}
+
   </style>
 </head>
 <body>
   <!-- ☰ Botón menú -->
   <header>
     <button class="menu-btn" onclick="toggleMenu()">☰</button>
-    🥯 Pan de Arroz "El Camarita"
+    <div class="logo-container">
+  <img src="logo.png" alt="El Camarita logo" class="logo-img">
+  <span class="marca-texto">Pan de Arroz “El Camarita”</span>
+</div>
+
   </header>
 
   <!-- 📋 Panel lateral -->
