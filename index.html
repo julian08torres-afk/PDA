@@ -18,6 +18,7 @@
       --fondo-textura: radial-gradient(circle at 20% 20%, #f2d8a3 0%, #e7c075 100%);
     }
 
+    
     body {
       font-family: "Poppins", sans-serif;
       background: var(--fondo-textura);
@@ -35,7 +36,10 @@
       font-size: 1.9em;
       font-weight: 600;
       box-shadow: 0 3px 10px rgba(0,0,0,0.3);
-      position: relative;
+      position: sticky;
+      top:0;
+       z-index: 1000;
+
     }
 
     /* ☰ Botón del menú */
@@ -328,10 +332,23 @@
 .whatsapp-fixed:hover {
   transform: scale(1.1);
 }
+.hero {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.video-fondo {
+  width: 100%;
+  max-width: 1200px;
+  object-fit: cover;
+  border-radius: 0;
+}
 
   </style>
 </head>
-<body>
 <body>
 
   <header>
@@ -348,15 +365,10 @@
     </video>
   </section>
 
+  <nav>
+    ...
+  </nav>
   <!-- ☰ Botón menú -->
-  <header>
-    <button class="menu-btn" onclick="toggleMenu()">☰</button>
-    <div class="logo-container">
-  <img src="logo.png" alt="El Camarita logo" class="logo-img">
-  <span class="marca-texto">Pan de Arroz “El Camarita”</span>
-</div>
-
-  </header>
 
   <!-- 📋 Panel lateral -->
   <div class="side-menu" id="sideMenu">
@@ -377,7 +389,6 @@
   </nav>
 
   <!-- 🎥 SECCIÓN INICIAL -->
- <main id="inicio"></main>
 
   <!-- NUEVAS SECCIONES -->
   <section id="pan-arroz">
