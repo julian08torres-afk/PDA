@@ -141,15 +141,16 @@
     /* Hero: video en la parte superior, tamaño moderado */
 .hero {
   width: 100%;
-  overflow: hidden;
+  margin: 0;
+  padding: 0;
 }
 
 .video-fondo {
   width: 100%;
   height: auto;
-  max-height: 350px; /* ajusta 300/320/400 según prefieras */
   object-fit: cover;
   display: block;
+  max-height: 350px;
 }
 
 
@@ -331,13 +332,17 @@
   </style>
 </head>
 <body>
-  <body>
+
   <section class="hero">
     <video autoplay muted loop playsinline class="video-fondo">
       <source src="fondo.mp4" type="video/mp4" />
-      Tu navegador no soporta video HTML5.
     </video>
   </section>
+
+  <header>
+
+<body>
+
 
   <!-- ☰ Botón menú -->
   <header>
