@@ -300,6 +300,29 @@
   font-size: 1em;
   font-weight: 600;
 }
+/* BOTÓN WHATSAPP FLOTANTE */
+.whatsapp-fixed {
+  position: fixed;
+  bottom: 18px;
+  right: 18px;
+  background-color: #25D366;
+  color: white;
+  font-size: 26px;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  z-index: 200;
+  transition: transform 0.3s;
+}
+
+.whatsapp-fixed:hover {
+  transform: scale(1.1);
+}
 
   </style>
 </head>
@@ -482,5 +505,7 @@ Nuestro propósito es ofrecer calidad, sabor y salud en cada bocado.</p>
       document.getElementById('overlay').classList.toggle('active');
     }
   </script>
+  <a href="https://wa.me/573133098211" class="whatsapp-fixed" target="_blank">💬</a>
+
 </body>
 </html>
