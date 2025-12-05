@@ -9,6 +9,18 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
+    .precio {
+  font-size: 1.3em;
+  font-weight: 700;
+  color: #b8741a;
+  margin-top: 8px;
+  background: #fff4d0;
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 10px;
+  border: 2px solid #d29b38;
+}
+
     :root {
       --dorado-oscuro: #d29b38;
       --miel-tostado: #b8741a;
@@ -50,6 +62,7 @@
       color: white;
       font-weight: bold;
     }
+    
 
     /* 📋 Panel lateral */
     .side-menu {
@@ -336,6 +349,13 @@
 </div>
 
   </header>
+<div class="side-menu" id="sideMenu">
+  <a href="#inicio">Inicio</a>
+  <a href="#quienes-somos">Quiénes Somos</a>
+  <a href="#productos">Productos</a>
+  <a href="#trabaja">Trabaja con Nosotros</a>
+  <a href="#contacto">Contacto</a>
+</div>
 
   <!-- 📋 Panel lateral -->
  
@@ -373,26 +393,34 @@ Cada pieza es hecha con amor, cuidando cada detalle para brindar una crocancia �
 Nuestro propósito es ofrecer calidad, sabor y salud en cada bocado.</p>
   </section>
 
-  <section id="productos">
-    <h1>Nuestros Productos</h1>
-    <div class="productos">
-      <div class="producto">
-        <img src="producto1.jpg.jpg" alt="Rosquitas El Camarita" />
-        <h3>Rosquitas Llaneras</h3>
-        <p>Crocantes, sin gluten y deliciosas. Hechas con arroz y queso natural.</p>
-      </div>
-      <div class="producto">
-        <img src="producto2.jpg.jpg" alt="Paquete El Camarita" />
-        <h3>Presentación de 10 unidades</h3>
-        <p>Perfectas para compartir o disfrutar a cualquier hora del día.</p>
-      </div>
-      <div class="producto">
-        <img src="producto3.jpg.jpg" alt="Pan de arroz Ibagué" />
-        <h3>Producto 100% Natural</h3>
-        <p>Libre de gluten, nutritivo y con el auténtico sabor de Ibagué.</p>
-      </div>
+ <section id="productos">
+  <h1>Nuestros Productos</h1>
+  <div class="productos">
+
+    <div class="producto">
+      <img src="producto1.jpg.jpg" alt="Rosquitas El Camarita" />
+      <h3>Rosquitas Llaneras</h3>
+      <p>Crocantes, sin gluten y deliciosas. Hechas con arroz y queso natural.</p>
+      <p class="precio">$6.000</p>
     </div>
-  </section>
+
+    <div class="producto">
+      <img src="producto2.jpg.jpg" alt="Paquete El Camarita" />
+      <h3>Presentación de 10 unidades</h3>
+      <p>Perfectas para compartir o disfrutar a cualquier hora del día.</p>
+      <p class="precio">$12.000</p>
+    </div>
+
+    <div class="producto">
+      <img src="producto3.jpg.jpg" alt="Pan de arroz Ibagué" />
+      <h3>Producto 100% Natural</h3>
+      <p>Libre de gluten, nutritivo y con el auténtico sabor de Ibagué.</p>
+      <p class="precio">$10.000</p>
+    </div>
+
+  </div>
+</section>
+
 
   <section id="trabaja" class="trabaja">
     <h2>¿Quieres ser parte de nuestro equipo?</h2>
