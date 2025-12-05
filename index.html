@@ -9,17 +9,24 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
-    .precio {
-  font-size: 1.3em;
-  font-weight: 700;
+   .precio {
+  font-size: 1.15em;
+  font-weight: 800;
   color: #b8741a;
-  margin-top: 8px;
-  background: #fff4d0;
+  margin-top: 10px;
+  background: #fff9ee;
   display: inline-block;
-  padding: 6px 14px;
+  padding: 6px 12px;
   border-radius: 10px;
-  border: 2px solid #d29b38;
+  border: 1px solid #e6c78a;
 }
+
+.precio-detalle {
+  font-size: 0.95em;
+  color: #3a2610;
+  margin-top: 6px;
+}
+
 
     :root {
       --dorado-oscuro: #d29b38;
@@ -393,33 +400,66 @@ Cada pieza es hecha con amor, cuidando cada detalle para brindar una crocancia �
 Nuestro propósito es ofrecer calidad, sabor y salud en cada bocado.</p>
   </section>
 
- <section id="productos">
+<section id="productos">
   <h1>Nuestros Productos</h1>
   <div class="productos">
 
+    <!-- Producto 1: unidad -->
     <div class="producto">
       <img src="producto1.jpg.jpg" alt="Rosquitas El Camarita" />
       <h3>Rosquitas Llaneras</h3>
       <p>Crocantes, sin gluten y deliciosas. Hechas con arroz y queso natural.</p>
-      <p class="precio">$6.000</p>
+
+      <!-- Precio y detalle -->
+      <p class="precio">Unidad — $5.000</p>
+
+      <!-- Botón pedido -->
+      <a class="btn-comprar track-cta"
+         href="https://wa.me/573133098211?text=Hola%2C%20quiero%20pedir%201%20unidad%20de%20Rosquitas%20Llaneras%20(%245.000)"
+         target="_blank" rel="noopener noreferrer">
+        Pedir por WhatsApp
+      </a>
     </div>
 
+    <!-- Producto 2: pack de 10 -->
     <div class="producto">
       <img src="producto2.jpg.jpg" alt="Paquete El Camarita" />
-      <h3>Presentación de 10 unidades</h3>
+      <h3>Presentación — Pack de 10</h3>
       <p>Perfectas para compartir o disfrutar a cualquier hora del día.</p>
-      <p class="precio">$12.000</p>
+
+      <!-- Precio y detalle: mostrar precio por unidad y total -->
+      <p class="precio">Pack de 10 — $4.000 c/u</p>
+      <p class="precio-detalle">Total ejemplo: 10 x $4.000 = <strong>$40.000</strong></p>
+
+      <!-- Botón pedido (mensaje prellenado para pack de 10) -->
+      <a class="btn-comprar track-cta"
+         href="https://wa.me/573133098211?text=Hola%2C%20quiero%20pedir%20un%20pack%20de%2010%20unidades%20(%244.000%20c/u)%20-%20Total%20%2440.000"
+         target="_blank" rel="noopener noreferrer">
+        Pedir pack de 10
+      </a>
     </div>
 
+    <!-- Producto 3: pack 20+ -->
     <div class="producto">
       <img src="producto3.jpg.jpg" alt="Pan de arroz Ibagué" />
-      <h3>Producto 100% Natural</h3>
-      <p>Libre de gluten, nutritivo y con el auténtico sabor de Ibagué.</p>
-      <p class="precio">$10.000</p>
+      <h3>Pack grande — 20+ unidades</h3>
+      <p>Ideal para eventos o venta al por mayor. Producto 100% natural.</p>
+
+      <!-- Precio y detalle: precio por unidad y ejemplo total -->
+      <p class="precio">Desde $3.500 c/u (para 20 unidades o más)</p>
+      <p class="precio-detalle">Ejemplo: 20 x $3.500 = <strong>$70.000</strong></p>
+
+      <!-- Botón pedido (mensaje prellenado para pack 20) -->
+      <a class="btn-comprar track-cta"
+         href="https://wa.me/573133098211?text=Hola%2C%20quiero%20informaci%C3%B3n%20y%20pedir%20un%20pack%20de%2020%20unidades%20(%243.500%20c/u)"
+         target="_blank" rel="noopener noreferrer">
+        Pedir pack 20+
+      </a>
     </div>
 
   </div>
 </section>
+
 
 
   <section id="trabaja" class="trabaja">
