@@ -344,39 +344,44 @@
   transform: scale(1.1);
 }
 
-/* Ajuste para que el menú quede pegado a la izquierda en celulares */
 @media (max-width: 600px) {
     header {
-        position: relative;
+        display: flex;
+        align-items: center;
+        padding: 10px;
     }
 
     .menu-btn {
-        position: absolute;
-        left: 10px;   /* lo pega a la izquierda */
-        top: 50%;
-        transform: translateY(-50%);
-        z-index: 10;  /* para que quede encima si algo se cruza */
+        order: 1;
+        margin-right: 10px;
     }
 
     .logo-container {
+        order: 2;
         display: flex;
-        justify-content: center;
-        width: 100%;
+        align-items: center;
+        margin-right: 10px;
+    }
+
+    .marca-texto {
+        order: 3;
+        font-size: 14px;
     }
 }
+
 
   </style>
 </head>
 <body>
   <!-- ☰ Botón menú -->
  <header>
-    <button class="menu-btn" onclick="toggleMenu()">≡</button>
-
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
     <div class="logo-container">
         <img src="logotipo.png" alt="El Camarita logo" class="logo-img">
-        <span class="marca-texto">Pan de Arroz "El Camarita"</span>
     </div>
+    <span class="marca-texto">Pan de Arroz “El Camarita”</span>
 </header>
+
 
 
 <div class="side-menu" id="sideMenu">
