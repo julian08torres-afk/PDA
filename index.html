@@ -344,17 +344,84 @@
   transform: scale(1.1);
 }
 
+/* ==== AJUSTE PARA QUE EL MENU (☰) QUEDE A LA IZQUIERDA Y EL LOGO CENTRADO ==== */
+
+header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* centra el logo */
+    height: 70px;
+    padding: 0 20px;
+}
+
+/* Botón menú */
+.menu-btn {
+    position: absolute;
+    left: 15px; /* pega el botón a la izquierda */
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 28px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 20;
+}
+
+/* Contenedor del logo */
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Imagen del logo */
+.logo-img {
+    height: 45px;
+    width: auto;
+}
+
+/* Texto de marca */
+.marca-texto {
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 2px;
+}
+
+/* Ajustes responsivos para celulares */
+@media (max-width: 600px) {
+
+    header {
+        height: 60px;
+    }
+
+    .menu-btn {
+        left: 10px; /* más pegado a la esquina aún */
+        font-size: 26px;
+    }
+
+    .logo-img {
+        height: 40px;
+    }
+
+    .marca-texto {
+        font-size: 13px;
+    }
+}
+
   </style>
 </head>
 <body>
   <!-- ☰ Botón menú -->
-  <header>
-    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+ <header>
+    <button class="menu-btn" onclick="toggleMenu()">≡</button>
+
     <div class="logo-container">
         <img src="logotipo.png" alt="El Camarita logo" class="logo-img">
+        <span class="marca-texto">Pan de Arroz "El Camarita"</span>
     </div>
-    <span class="marca-texto">Pan de Arroz “El Camarita”</span>
 </header>
+
 
 <div class="side-menu" id="sideMenu">
   <a href="#inicio">Inicio</a>
